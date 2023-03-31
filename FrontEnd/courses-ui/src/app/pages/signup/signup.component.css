@@ -1,0 +1,36 @@
+[nz-form]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.phone-select {
+  width: 70px;
+}
+.register-are {
+  margin-bottom: 8px;
+}
+button{
+  color: #ffff;
+  width: 100%;
+  background-color:  #1896e5;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  font-size: 2rem;
+  border-radius: 4px;
+  min-height: 44px;
+  
+}
+button:hover{
+  opacity: 0.8;
+}
+.ant-col-offset-6{
+  margin-left: 0;
+}
+.ant-btn-primary{
+  background-color: var(--primary-color);
+}
+.ant-form-item-control-input{
+  width: 400px ;
+}

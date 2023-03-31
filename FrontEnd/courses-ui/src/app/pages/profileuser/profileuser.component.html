@@ -1,0 +1,101 @@
+<div class="wrapper_profile">
+    <div class="nav">
+        <div class="nav__logo">
+            <a [routerLink]="'/home'">
+                <img src="./assets/f8_icon.png" alt="logo F8">
+            </a>
+        </div>
+        <div class="nav_avatar" nz-button nz-popover [nzPopoverContent]="contentTemplateUser"
+            nzPopoverPlacement="bottomRight" nzPopoverTrigger="click" [nzPopoverVisible]="isPopoverVisible"
+            (nzPopoverVisibleChange)="onPopoverVisibleChange($event)">
+            <img src="./assets/{{User.avatar || 'avatar_default.jpg'}}" alt="">
+            <ng-template #contentTemplateUser>
+                <div>
+                    <div class="wrap_user">
+                        <div class="user_info">
+                            <img src="./assets/{{User.avatar || 'avatar_default.jpg'}}" alt="" />
+                            <div class="user_name">
+                                <h4>{{User.name}}</h4>
+                                <p>@{{User.userName}}</p>
+                            </div>
+                        </div>
+                        <div class="wrap_action">
+                            <hr>
+                            <p class="action_profile"> Trang cá nhân</p>
+                            <hr>
+                            <a routerLink="/setting">Cài đặt</a>
+                            <a (click)="logOut()">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="profile">
+        <div class="profile_banner">
+            <div class="profile_user">
+                <div class="profile_user-avatar">
+                    <img src="./assets/{{User.avatar || 'avatar_default.jpg'}}" alt="{{User.name}}">
+                </div>
+                <div class="profile_user-name">
+                    <h2>{{User.name}}</h2>
+                </div>
+            </div>
+            <div class="profile_user-change-cover">
+                <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" [nzFileList]="fileList"  [nzShowUploadList]="false"
+                    (nzChange)="handleChange($event)" (click)="handleClick()">
+                    <div class="upload_cover-img" nzTooltipTitle="Chỉnh sửa ảnh bìa" nzTooltipPlacement="top"nz-tooltip>
+                        <span nz-icon nzType="camera" nzTheme="fill"></span>
+                    </div>
+                </nz-upload>
+            </div>
+            <div class="profile_user-change-confirm btn_confirm">
+                <button class="profile_user-change-btn btn--canle" (click)="handleCancel()">Hủy</button>
+                <button class="profile_user-change-btn btn--save" (click)="handleSave()">Lưu lại</button>
+            </div>
+        </div>
+        <div class="profile__content">
+            <div class="profile__content-wrap">
+                <div class="profile_row-left">
+                    <div class="content_left">
+                        <div class="box_wrapper">
+                            <h4>Giới thiệu </h4>
+                            <div class="box_wrapper_participation">
+                                <span class="icon_user" nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+                                <span class="details">Là Thành viên của <strong>F8 - Học lập trình để đi
+                                        làm</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile_row-right">
+                    <div class="box_wrapper">
+                        <div class="profile_myCourseas">
+                             <h4 class="title__mycoursea">Các khóa học đã tham gia</h4>
+                            <div class="profile_mycoursea-item" *ngFor="let mycoursea of myCourseas">
+                                <a routerLink="/courseacontent/{{mycoursea.coursea.id}}">
+                                    <img src="./assets/{{mycoursea.coursea.img}}"
+                                        alt="">
+                                </a>
+                                <div class="profile_mycoursea_info">
+                                    <h3 class="profile_mycoursea-title">
+                                        {{mycoursea.coursea.title}}
+                                    </h3>
+                                    <p class="profile_mycoursea-description" [innerHTML]="mycoursea.coursea.description">
+                                    </p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="no__coursea">
+                            <h4 class="title__mycoursea">Bạn chưa đăng ký khóa học nào</h4>
+                            <div class="img_nocoursea">
+                                <img src="./assets/Monitor_Illustration.png" alt="No coursea">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

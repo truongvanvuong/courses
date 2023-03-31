@@ -1,0 +1,11 @@
+.wrap{
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.form-control-item{
+    width: 50%;
+    margin: 22px 0 0 0;
+}
+.form-control-item>input{
+    position: relative;
+}

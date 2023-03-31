@@ -1,0 +1,81 @@
+<header class="header">
+    <div class="header_logo">
+        <a [routerLink]="'/home'">
+            <img src="./assets/f8_icon.png" alt="logo F8">
+        </a>
+        <h4>Học Lập Trình Để Đi Làm</h4>
+    </div>
+    <div class="header_search" nz-popover [nzPopoverContent]="contentTemplateSearch" nzPopoverTrigger="click">
+        <span nz-icon nzType="search" nzTheme="outline"></span>
+        <input type="text" placeholder="Tìm kiếm khóa học" (input)="onSearch($event)">
+        <ng-template #contentTemplateSearch>
+            <div class="wrap_search">
+              <h3 *ngIf="!showResults && value.trim() == ''">Nhập từ khóa tìm kiếm</h3>
+              <h3 *ngIf="showResults" >Kết quả tìm kiếm "{{value}}"</h3>
+              <span *ngIf="showResults" >Khóa Học</span>
+              <div class="result_search" *ngIf="showResults">
+                <div class="result_search_item" *ngFor="let item of searchResults">
+                    <a (click)="handleClick(item.id)">
+                        <img src="./assets/{{item.img}}" alt="{{item.title}}">
+                        <h4>{{item.title}}</h4>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+    </div>
+    <div *ngIf="loginClass" class="header_user {{loginClass.className}}">
+        <button routerLink="/login" class="btn_login" nz-button nzType="primary" [nzSize]="size" nzShape="round">
+            Đăng nhập
+        </button>
+        <div class="user">
+            <button nz-popover [nzPopoverContent]="contentTemplateCoursea" nzPopoverPlacement="bottomRight"
+                nzPopoverTrigger="click">Khóa học của tôi</button>
+            <ng-template #contentTemplateCoursea>
+                <div>
+                    <div class="wrapper_mycourse">
+                        <h3 class="mycourse_title {{titleNoCourse}}">{{noCoursea || 'Khóa học của tôi'}}</h3>
+                        <div class="mycourse-body">
+                            <div class="mycourse-item" *ngFor="let mycoursea of myCourseas"
+                                (click)="handleClick(mycoursea.coursea.id)">
+                                <a>
+                                    <img src="./assets/{{mycoursea.coursea.img}}" alt="{{mycoursea.coursea.title}}">
+                                    <h3>{{mycoursea.coursea.title}}</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="no__coursea {{classNameNoCoursea}}">
+                            <img src="./assets/Monitor_Illustration.png" alt="No coursea">
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <div class="Avatar"  nz-popover [nzPopoverContent]="contentTemplateUser" [nzPopoverMouseLeaveDelay]="2"
+            [nzPopoverMouseEnterDelay]="2"
+                nzPopoverPlacement="bottomRight" nzPopoverTrigger="click" [nzPopoverVisible]="isPopoverVisible"
+                (nzPopoverVisibleChange)="onPopoverVisibleChange($event)">
+                <img src="./assets/{{User.avatar || 'avatar_default.jpg'}}" alt="">
+            </div>
+            <ng-template #contentTemplateUser>
+                <div>
+                    <div class="wrap_user">
+                        <div class="user_info">
+                            <img src="./assets/{{User.avatar || 'avatar_default.jpg'}}" alt="" />
+                            <div class="user_name">
+                                <h4>{{User.name}}</h4>
+                                <p>@{{User.userName}}</p>
+                            </div>
+                        </div>
+                        <div class="wrap_action">
+                            <hr>
+                            <a class="profile" [routerLink]="'/profileuser'"> Trang cá nhân</a>
+                            <hr>
+                            <a [routerLink]="'/setting'">Cài đặt</a>
+                            <a (click)="logOut()">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</header>

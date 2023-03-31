@@ -1,0 +1,40 @@
+.nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 66px;
+  left: 0;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nav_list {
+  padding: 0 8px;
+  margin-top: 12px;
+}
+
+.nav_link {
+  border-radius: 16px;
+  height: 72px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nav_item > a:hover {
+  background-color: #f5f5f5;
+}
+.nav_item > a > svg {
+  font-size: 2rem;
+  color: #1a1a1a;
+  height: 1em;
+  display: block;
+}
+.nav_item > a > span {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-top: 6px;
+  font-weight: 500;
+  display: block;
+}

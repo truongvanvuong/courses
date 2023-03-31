@@ -1,0 +1,28 @@
+<div class="from">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <div class="img_logo">
+            <img src="./assets/f8_icon.png" alt="logo F8">
+        </div>
+        <h2>Đăng nhập</h2>
+        <nz-form-item>
+            <nz-form-control [nzErrorTip]="emailErrorTpl" >
+                <nz-input-group nzPrefixIcon="user" >
+                    <input type="email" nz-input nzRequired formControlName="email" placeholder="Email" />
+                    <ng-template #emailErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('email')">Email không hợp lệ</ng-container>
+                        <ng-container *ngIf="control.hasError('required')">Nhập E-mail của bạn</ng-container>
+                      </ng-template>
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Nhập mật khẩu của bạn!">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Mật khẩu" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Đăng nhập</button>
+        <a routerLink="/signup" class="link_login">Đăng ký</a>
+    </form>
+</div>

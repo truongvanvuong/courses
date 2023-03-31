@@ -1,0 +1,24 @@
+<div class="from">
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <div class="img_logo">
+            <img src="./assets/f8_icon.png" alt="logo F8">
+        </div>
+        <h2>Đăng nhập Quản Trị Viên</h2>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Nhập tên của bạn!">
+                <nz-input-group nzPrefixIcon="user">
+                    <input type="text" nz-input formControlName="name" placeholder="Tên đăng nhập" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Nhập mật khẩu của bạn!">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Mật khẩu" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Đăng nhập</button>
+        
+    </form>
+</div>

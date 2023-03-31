@@ -1,0 +1,33 @@
+<app-header-admin></app-header-admin>
+<div nz-row>
+    <app-sidebar-admin nz-col [nzSpan]="4"></app-sidebar-admin>
+    <div nz-col [nzSpan]="20" class="wrap_coursea_admin">
+        <div class="add_coursea">
+            <h4 class="title-coursea">Thêm khóa học</h4>
+            <form class="form-control" (ngSubmit)="formSubmit()">
+                <div class="wrap">
+                    <div class="form-control-item">
+                        <label for="title">Tên khóa học</label>
+                        <input  class="name_input"type="text" id="title" name="title" [(ngModel)]="coursea.title">
+                    </div>
+                    <div class="form-control-item">
+                        <label for="img">Upload ảnh</label>
+                        <nz-upload class="btn_upload" nzAction="https://jsonplaceholder.typicode.com/posts/"
+                            [nzFileList]="fileList" (nzChange)="handleChange($event)"
+                            [nzShowUploadList]="showUploadList">
+                            <span nz-icon nzType="upload"></span>
+                            Click to Upload
+                        </nz-upload>
+                    </div>
+                </div>
+                <div class="coursea_des">
+                    <h5>Mô tả</h5>
+                    <ckeditor name="description" [editor]="Editor" [(ngModel)]="coursea.description"   ></ckeditor>
+                </div>
+                <div class="coursea_btn">
+                    <button class="button">Thêm khóa học</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

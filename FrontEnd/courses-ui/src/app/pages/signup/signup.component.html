@@ -1,0 +1,68 @@
+<div class="from">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <div class="img_logo">
+      <img src="./assets/f8_icon.png" alt="logo F8">
+  </div>
+    <h2>Đăng Ký</h2>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Vui lòng nhập tên của bạn!">
+        <input nz-input id="name"   formControlName="name"  placeholder="Tên"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Vui lòng nhập tên người dùng của bạn!">
+        <input nz-input id="userName"  formControlName="userName" placeholder="Tên người dùng" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="validateForm.controls['phoneNumber']"
+        nzErrorTip="Vui lòng nhập số điện thoại!">
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+          <ng-template #addOnBeforeTemplate>
+            <nz-select formControlName="phonePrefix" class="phone-select">
+              <nz-option nzLabel="+84" nzValue="+84"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input formControlName="phone" id="phone" minlength="1" maxlength="10"  nz-input placeholder="Số điện thoại" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Hãy nhập Email hợp lệ!">
+        <input nz-input formControlName="email"  id="email" placeholder="Email"   />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Vui lòng nhập mật khẩu!">
+        <input nz-input type="password" id="password" formControlName="password" placeholder="Mật khẩu" 
+          (ngModelChange)="updateConfirmValidator()" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="from_item">
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+        <input nz-input type="password" formControlName="checkPassword" id="checkPassword"  placeholder="Nhập lại mật khẩu"/>
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">Vui lòng nhập lại mật khẩu!</ng-container>
+          <ng-container *ngIf="control.hasError('confirm')">
+            Mật khẩu không trùng khớp!!
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <label nz-checkbox formControlName="agree" id="check">
+          <span>
+            Tôi đã đọc
+            <a>chính sách</a>
+          </span>
+        </label>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" class="btn-regs" >Đăng ký</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

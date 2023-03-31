@@ -1,0 +1,62 @@
+<header id="header">
+    <div class="header_logo">
+        <a routerLink="/home">
+            <span nz-icon nzType="left" nzTheme="outline"></span>
+        </a>
+        <a routerLink="/home">
+            <img src="./assets/f8_icon.png" alt="logo F8">
+        </a>
+        <h4>Học Lập Trình Để Đi Làm</h4>
+    </div>
+    <div class="lessons">
+        <p>{{lessons.length}} bài học</p>
+    </div>
+</header>
+<div class="content">
+    <div class="sider">
+        <h3>Nội dụng khóa học</h3>
+        <ul nz-menu nzMode="inline">
+            <li nz-submenu [nzOpen]="true" nzTitle="Danh sách bài học">
+                <ul class="list_lessons" *ngFor="let lesson of lessons, let i = index">
+                    <li nz-menu-item class="lesson " (click)="handleLesson(lesson.id, i)" [attr.data-id]="lesson.id">{{i+1}}. {{lesson.nameLessons}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="wrap_lesson">
+        <div class="lesson_video">
+            <div class="wrap_video">
+                <iframe width="100%" height="100%" src="" class="ifram" id="" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="more_description">
+            <h2 class="lesson_title">{{currentLesson?.nameLessons}}</h2>
+            <div class="description" [innerHTML]="currentLesson?.description"></div>
+        </div>
+        <div class="powerd">
+            <p>
+                Made with <span nz-icon nzType="heart" nzTheme="fill"></span> . Powered by F8
+            </p>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer_action">
+        <button type="button" class="btn btn_prev disable" (click)="prev()">
+            <span nz-icon nzType="left" nzTheme="outline">
+            </span> Bài trước</button>
+        <button type="button" class="btn btn_next" (click)="next()">Bài kế tiếp
+            <span nz-icon nzType="right" nzTheme="outline"></span>
+        </button>
+        <div class="btn_toogle"(click)="handleMenu()">
+            <h3>Danh sách bài học</h3>
+            <button class="footer_btn">
+                <span nz-icon nzType="{{ menu || 'arrow-right'}}"  nzTheme="outline"></span>
+            </button>
+        </div>
+    </div>
+</footer>

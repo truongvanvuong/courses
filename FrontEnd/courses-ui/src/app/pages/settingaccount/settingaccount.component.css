@@ -1,0 +1,100 @@
+.wrapper_account {
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.wrapper_account > h1 {
+  display: inline-block;
+  color: var(--text-color);
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0.67em 0;
+}
+.acccount_body {
+  gap: 80px;
+  display: flex;
+  margin-top: 20px;
+}
+.acccount_avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 24%;
+  --bar-width: 180px;
+}
+
+.acccount_avatar > img {
+  object-fit: cover;
+  width: var(--bar-width);
+  height: var(--bar-width);
+  border-radius: 50%;
+  border: 0.5 solid #cccc;
+}
+.acccount_avatar > h3 {
+  width: var(--bar-width);
+  text-align: center;
+  margin: 16px 0;
+  font-size: 1.8rem;
+}
+.acccount_info {
+  padding: 0 12px 0 12px;
+  width: 60%;
+}
+.acccount_info > h2 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  font-size: 2.2rem;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+}
+.form-control .wrap {
+  display: flex;
+  flex-direction: column;
+}
+.form-control-item > input {
+  max-width: 500px;
+}
+.form-control-item {
+  padding: 16px 0 20px;
+}
+.form-control-item > span {
+  margin-left: 31.5%;
+}
+.coursea_btn{
+  display: flex;
+}
+.btn_account {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  font-size: 1.6rem;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 20px;
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s, fill 0.1s;
+}
+.btn_account:hover{
+  border-color: rgba(0,0,0,.54);
+    color: rgba(0,0,0,.68);
+}
+
+.btn_account:nth-child(1), 
+.btn_account:nth-child(3)
+{
+  display: none;
+} 
+.save .btn_account:nth-child(1){
+  display: flex;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  margin-right: 12px;
+}
+.save .btn_account:nth-child(2){
+  display: none;
+}
+.save .btn_account:nth-child(3){
+  display: flex;
+}

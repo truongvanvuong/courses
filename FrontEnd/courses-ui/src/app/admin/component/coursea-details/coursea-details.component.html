@@ -1,0 +1,43 @@
+<app-header-admin></app-header-admin>
+<div nz-row>
+    <app-sidebar-admin nz-col [nzSpan]="4"></app-sidebar-admin>
+    <div nz-col [nzSpan]="20" class="wrap_coursea_admin">
+        <div class="coursea_details">
+            <div class="coursea_wrap">
+                <img src="/assets/{{coursea.img}}" alt="">
+                <h5>{{coursea.title}}</h5>
+                <p [innerHTML]="coursea.description">
+                </p>
+                <h3>Ngày tạo khóa học : {{coursea.createdat}}</h3>
+                <h3>Cập nhật : {{ coursea.updatedat || 'Khóa học chưa cập nhật' }}</h3>
+                <h3>Tổng số bài học : {{lessons.length}}</h3>
+                <div class="action">
+                    <span routerLink="/updatecoursea/{{coursea.id}}" nz-icon nzType="edit" nzTheme="outline"
+                        nzTooltipTitle="Chỉnh sửa" nzTooltipPlacement="top" nz-button nz-tooltip></span>
+                    <span nz-icon nzType="delete" nzTheme="outline" (click)="deleteCousea(coursea.id)"
+                        nzTooltipTitle="Xóa" nzTooltipPlacement="top" nz-button nz-tooltip></span>
+                </div>
+            </div>
+            <ul class="lessons_list">
+                <li class="lessons_item" *ngFor="let lesson of lessons; let i = index">
+                    <span class="index-lesson">{{i+1}}</span>
+                    <div class="lessons_wrap">
+                        <div class="lesson_img">
+                            <img src="{{lesson.img}}" alt="{{lesson.nameLessons}}">
+                        </div>
+                        <div class="lessons_info">
+                            <span>{{lesson.nameLessons}}</span>
+                            <h6>{{coursea.title}}</h6>
+                        </div>
+                    </div>
+                    <div class="action lessons_action">
+                        <span routerLink="/updatelesson/{{lesson.id}}" nz-icon nzType="edit" nzTheme="outline"
+                            nzTooltipTitle="Chỉnh sửa" nzTooltipPlacement="top" nz-button nz-tooltip></span>
+                        <span nz-icon nzType="delete" nzTheme="outline" (click)="deleteLesson(lesson.id)"
+                            nzTooltipTitle="Xóa" nzTooltipPlacement="top" nz-button nz-tooltip></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<header class="header">
+    <div class="header_content">
+        <div class="header_logo">
+            <img src="/assets/f8_icon.png" alt="">
+            <h3>Học lập trình để đi làm</h3>
+        </div>
+        <div class="header_user" *ngIf="adminData">
+            <span>{{adminData.name}}</span>
+            <img src="/assets/{{adminData.img}}" alt="avatar">
+        </div>
+    </div>
+</header>

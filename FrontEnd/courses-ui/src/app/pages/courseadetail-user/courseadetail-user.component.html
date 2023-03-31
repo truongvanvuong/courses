@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="wrap_body">
+    <app-sidebar></app-sidebar>
+    <div class="wrapper">
+        <div class="wrap_coursea">
+            <div class="coursea_detail">
+                <h1>{{coursea.title}}</h1>
+                <p [innerHTML]="coursea.description"></p>
+                <h2>Nội dụng khóa học</h2>
+                <span><strong>{{lessonss.length}}</strong> Bài học</span>
+                <span class="dot">&#9679;</span>
+                <span> Thời lượng 
+                    <!-- <strong>9 giờ 50 phút</strong>  -->
+                </span>
+                <div class="list_lesson">
+                    <nz-collapse [nzAccordion]="true">
+                        <nz-collapse-panel nzHeader="Bài học">
+                            <p *ngFor="let lesson of lessonss; let i = index">{{i +1}}. {{ lesson.nameLessons }}
+                            </p>
+                        </nz-collapse-panel>
+                    </nz-collapse>
+                </div>
+            </div>
+            <div class="coursea_introduce">
+                <div class="wrap_introduce">
+                    <div class="coursea_preview" style="background-image: url(./assets/{{coursea.img}});"
+                        (click)="showModal1()">
+                        <div class="coursea_img"></div>
+                        <span nz-icon nzType="play-circle" nzTheme="fill"></span>
+                        <p>Xem giới thiệu khóa học</p>
+                    </div>
+                    <nz-modal [(nzVisible)]="isVisible" nzWidth="900px" nzClassName="my-modal"
+                        (nzOnCancel)="handleCancel()">
+                        <div *nzModalContent>
+                            <h3 class="modal_title1">Giới thiệu khóa học</h3>
+                            <h2 class="modal_title2">{{coursea.title}}</h2>
+                            <div class="wrap_video">
+                                <iframe #myIframe width="100%" class="ifram" height="100%" src=""
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div *nzModalFooter>
+                        </div>
+                    </nz-modal>
+                </div>
+                <h4>Miễn phí</h4>
+                <button class="btn_sub button_2" (click)="subHandle()">Đăng ký học</button>
+                <ul class="introduct_list">
+                    <li>
+                        <span nz-icon nzType="dashboard" nzTheme="fill"></span>
+                        <p>Trình độ cơ bản</p>
+                    </li>
+                    <li>
+                        <span nz-icon nzType="book" nzTheme="fill"></span>
+                        <p>Tổng số <strong>{{lessonss.length}}</strong> bài học</p>
+                    </li>
+                    <li>
+                        <span nz-icon nzType="clock-circle" nzTheme="fill"></span>
+                        <p>Thời lượng 
+                            <!-- <strong>9 giờ 20 phút</strong> -->
+                        </p>
+                    </li>
+                    <li>
+                        <span nz-icon nzType="read" nzTheme="fill"></span>
+                        <p>Học mọi lúc mọi nơi</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

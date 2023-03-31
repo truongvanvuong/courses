@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div style="margin-top: 66px;">
+    <div class="wrapper_account">
+        <h1>Cài đặt tài khoản</h1>
+        <div class="acccount_body">
+            <div class="acccount_avatar">
+                <img src="./assets/{{ user.avatar || 'avatar_default.jpg'}}" class="img_avatar" alt="">
+                <h3>{{user.name}}</h3>
+            </div>
+            <div class="acccount_info">
+                <h2>Thông tin cá nhân</h2>
+                <div class="acccount_from">
+                    <form class="form-control" *ngIf="user">
+                        <div class="wrap">
+                            <div class="form-control-item">
+                                <label for="name">Họ tên</label>
+                                <input class="name_input" type="text" id="name" name="name"  [(ngModel)]="user.name" [readonly]="!isEdit">
+                            </div>
+                            <div class="form-control-item">
+                                <label for="name">User name</label>
+                                <input class="name_input" type="text" id="useName" name="userName" [(ngModel)]="user.userName" [readonly]="!isEdit">
+                            </div>
+                            <div class="form-control-item">
+                                <label for="img">Avatar</label>
+                                <nz-upload class="btn_upload" nzAction="https://jsonplaceholder.typicode.com/posts/"
+                                    [nzFileList]="fileList" (nzChange)="handleChange($event)"
+                                    [nzShowUploadList]="showUploadList" [nzDisabled]="!isUpload">
+                                    <span nz-icon nzType="upload"></span>
+                                    Click to Upload 
+                                </nz-upload>
+                            </div>
+                            <div class="form-control-item">
+                                <label for="name">Email</label>
+                                <input class="name_input" type="text" id="email" name="emai" [(ngModel)]="user.email" [readonly]="!isEdit">
+                            </div>
+                            <div class="form-control-item">
+                                <label for="name">Số điện thoại</label>
+                                <input class="name_input" type="text" id="phone" name="phone" [(ngModel)]="user.phone" [readonly]="!isEdit">
+                            </div>
+                            <div class="form-control-item">
+                                <label for="password">Mật khẩu cũ</label>
+                                <input class="name_input" [type]="passwordVisible ? 'text' : 'password'"
+                                    id="passwordOld" name="passwordOld" [(ngModel)]="user.passwordOld" [readonly]="!isEdit">
+                                <span class="eyeIcon" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                                    (click)="passwordVisible = !passwordVisible"></span>
+                            </div>
+                            <div class="form-control-item">
+                                <label for="password">Mật khẩu mới</label>
+                                <input class="name_input" [type]="passwordVisible ? 'text' : 'password'"
+                                    id="passwordNew" name="passwordNew" [(ngModel)]="user.passwordNew" [readonly]="!isEdit">
+                                <span  class="eyeIcon" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                                    (click)="passwordVisible = !passwordVisible"></span>
+                            </div>
+                        </div>
+                        <div class="coursea_btn">
+                            <button class="btn_account" (click)="formSubmit()">Lưu</button>
+                            <button class="btn_account"(click)="handleEdit()">chỉnh sửa</button>
+                            <button class="btn_account"(click)="handleCanle()">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,36 @@
+.sidebar {
+  background-color: var(--white-color);
+  position: fixed;
+  min-width: 250px;
+  z-index: 5;
+  top: 66px;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #faf7f7cc;
+}
+.tab_item {
+  margin: 10px 0;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+.tab_item:hover {
+  background-color: rgba(57, 76, 96, 0.15);
+}
+.tab_list {
+  padding: 0 20px;
+  margin-top: 44px;
+}
+.tab_item > span {
+  margin-right: 12px;
+  font-size: 1.8rem;
+  color: var(--text-color);
+}
+
+.tab_item > li {
+  color: var(--text-color);
+  font-size: 1.7rem;
+}
+.tab_user {
+  border-top: 1px solid #ccc;
+}

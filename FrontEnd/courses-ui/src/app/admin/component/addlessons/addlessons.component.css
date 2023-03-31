@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+}
+.form-control-item {
+  margin-bottom: 18px;
+}
+.form-control-item > label,
+.lessons_des > h5 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 350px;
+}

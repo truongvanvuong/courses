@@ -1,0 +1,8 @@
+.coursea-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.coursea-heading >h3{
+    margin: 0;
+}

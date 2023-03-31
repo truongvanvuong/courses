@@ -1,0 +1,18 @@
+<div class="coursea">
+    <div class="coursea-heading">
+        <h1 class="title-coursea">Các Khóa Học</h1>
+        <h3>Tổng số khóa học : {{courseas.length}}</h3>
+    </div>
+    <div class="coursea_list">
+        <div class="coursea_item" *ngFor="let coursea of courseas">
+            <a style="background-image: url('/assets/{{coursea.img}}') ;" routerLink="/Courseadetails/{{coursea.id}}">
+                <span class="btn_course">Xem khóa học</span>
+            </a>
+            <h5>{{coursea.title}}</h5>
+            <div class="count-item-subcourse">
+                <span class="icon_user" nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+                <span class="quantity">{{getCountSubcourseItems(coursea.id)}}</span>
+            </div>
+        </div>
+    </div>
+</div>

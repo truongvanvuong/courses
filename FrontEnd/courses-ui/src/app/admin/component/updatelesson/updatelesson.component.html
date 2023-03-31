@@ -1,0 +1,43 @@
+<app-header-admin></app-header-admin>
+<div nz-row>
+    <app-sidebar-admin nz-col [nzSpan]="4"></app-sidebar-admin>
+    <div nz-col [nzSpan]="20" class="wrap_coursea_admin">
+        <div class="add_lessons">
+            <h4 class="title-coursea">Chỉnh sửa bài học</h4>
+            <form class="form-control" *ngIf="lessonData" (ngSubmit)="updateLesson()" >
+                <div class="wrap">
+                    <div class="wrap_lesson">
+                        <div class="form-control-item">
+                            <label for="name">Tên bài học</label>
+                            <input type="text" id="name" name="name" [(ngModel)]="lessonData.nameLessons">
+                        </div>
+                        <div class="form-control-item">
+                            <label for="url">Link video</label>
+                            <input type="text" id="url" name="url" [(ngModel)]="lessonData.url">
+                            <span class="btn_upload_url" (click)="handleClick()">Upload</span>
+                        </div>
+                        <div class="form-control-item">
+                            <label for="select_coursea">Khóa học</label>
+                           <nz-select [(ngModel)]="lessonData.coursea.id" name="coursea" nzPlaceHolder="Khóa học">
+                            <nz-option *ngFor="let coursea of courseas" nzValue="{{coursea.id}}" nzLabel="{{coursea.title}}"></nz-option>
+                          </nz-select>
+                        </div>
+                    </div>
+                    <div class="lessons_video" >
+                        <iframe  width="100%" class="ifram" height="100%" src=""
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="lessons_des">
+                    <h5>Mô tả</h5>
+                    <ckeditor name="description" [editor]="Editor" [(ngModel)]="lessonData.description"></ckeditor>
+                </div>
+                <div class="lessons_btn">
+                    <button class="button">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

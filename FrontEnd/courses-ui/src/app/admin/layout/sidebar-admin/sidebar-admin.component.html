@@ -1,0 +1,32 @@
+<div class="sidebar">
+    <ul class="tab_list">
+        <div class="tav_coursea">
+            <a routerLink="/admin/home" class="tab_item" routerLinkActive="active">
+                <span nz-icon nzType="book" nzTheme="fill"></span>
+                <li>Khóa học</li>
+            </a>
+            <a routerLink="/addcoursea" class="tab_item" routerLinkActive="active">
+                <span nz-icon nzType="plus-circle" nzTheme="fill"></span>
+                <li>Thêm khóa học</li>
+            </a>
+            <a routerLink="/addlessons" class="tab_item" routerLinkActive="active">
+                <span nz-icon nzType="plus-circle" nzTheme="fill"></span>
+                <li>Thêm bài học</li>
+            </a>
+        </div>
+        <div class="tab_user">
+            <a routerLink="/profile" class="tab_item" routerLinkActive="active">
+                <span nz-icon nzType="user" nzTheme="outline"></span>
+                <li>Tài khoản</li>
+            </a>
+            <a class="tab_item" routerLink="/addadmin" routerLinkActive="active">
+                <span nz-icon nzType="plus" nzTheme="outline"></span>
+                <li>Tạo tài khoản</li>
+            </a>
+            <a class="tab_item" (click)="logout()">
+                <span nz-icon nzType="logout" nzTheme="outline"></span>
+                <li>Đăng Xuất</li>
+            </a>
+        </div>
+    </ul>
+</div>

@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="wrap_body">
+    <app-sidebar></app-sidebar>
+    <div class="wrapper">
+        <div class="wrapper_home">
+            <div class="silde">
+                <div class="icon_left" (click)="prev()">
+                    <span nz-icon nzType="left" nzTheme="outline"></span>
+                </div>
+                <nz-carousel nzAutoPlay>
+                    <div nz-carousel-content *ngFor="let slide of slides">
+                        <div class="slide_base" style.background={{slide.background}}>
+                            <div class="slide_left">
+                                <h2>{{slide.title}}</h2>
+                                <P>{{slide.description}}</P>
+                                <div class="btn_link ">
+                                    <a href="{{slide.link}}" class="link {{slide.classhover}}"
+                                        target="_blank">{{slide.titleBtn}}</a>
+                                </div>
+                            </div>
+                            <div class="slide_right">
+                                <a href="{{slide.link}}" target="_blank">
+                                    <img src="./assets/{{slide.img}}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nz-carousel>
+                <div class="icon_right" (click)="next()">
+                    <span nz-icon nzType="right" nzTheme="outline"></span>
+                </div>
+            </div>
+            <div class="home_coursea">
+                <div class="coursea">
+                    <div class="coursea-heading">
+                        <h1 class="title-coursea">Các Khóa Học</h1>
+                        <a class="path-link" routerLink="/studyroute">Xem lộ trình 
+                            <span nz-icon nzType="right" nzTheme="outline"></span>
+                        </a>
+                    </div>
+                    <div class="coursea_list">
+                        <div class="coursea_item" *ngFor="let coursea of courseas">
+                            <a style="background-image: url('/assets/{{coursea.img}}');"
+                                (click)="handleClick(coursea.id)">
+                                <span class=" btn_course">Xem khóa học</span>
+                            </a>
+                            <h5>{{coursea.title}}</h5>
+                            <div class="count-item-subcourse">
+                                <span class="icon_user" nz-icon nzType="usergroup-delete" nzTheme="outline"></span>
+                                <span class="quantity">{{getCountSubcourseItems(coursea.id)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
